@@ -45,12 +45,6 @@ activities = {
         "max_participants": 22,
         "participants": []
     },
-    "Swimming Club": {
-        "description": "Swim training and competitive meets for all skill levels",
-        "schedule": "Wednesdays and Fridays, 3:30 PM - 5:00 PM",
-        "max_participants": 20,
-        "participants": []
-    },
     "Art Studio": {
         "description": "Explore painting, drawing, and mixed media techniques",
         "schedule": "Mondays and Wednesdays, 3:30 PM - 5:00 PM",
@@ -61,18 +55,6 @@ activities = {
         "description": "Act, direct, and produce theatrical performances",
         "schedule": "Tuesdays and Thursdays, 4:00 PM - 6:00 PM",
         "max_participants": 25,
-        "participants": []
-    },
-    "Math Olympiad": {
-        "description": "Prepare for regional and national math competitions",
-        "schedule": "Fridays, 3:30 PM - 5:00 PM",
-        "max_participants": 15,
-        "participants": []
-    },
-    "Debate Team": {
-        "description": "Develop critical thinking and public speaking through competitive debate",
-        "schedule": "Mondays and Thursdays, 4:00 PM - 5:30 PM",
-        "max_participants": 16,
         "participants": []
     }
 }
@@ -105,3 +87,22 @@ def signup_for_activity(activity_name: str, email: str):
     # Add student
     activity["participants"].append(email)
     return {"message": f"Signed up {email} for {activity_name}"}
+
+
+@app.delete("/activities/{activity_name}/participants")
+def unregister_participant(activity_name: str, email: str):
+    """Unregister a student from an activity"""
+    # Validate activity exists
+    if activity_name not in activities:
+        raise HTTPException(status_code=404, detail="Activity not found")
+
+    # Get the specific activity
+    activity = activities[activity_name]
+
+    # Check if student is signed up
+    if email not in activity["participants"]:
+        raise HTTPException(status_code=404, detail="Student is not signed up for this activity")
+
+    # Remove student
+    activity["participants"].remove(email)
+    return {"message": f"Unregistered {email} from {activity_name}"}
