@@ -56,6 +56,36 @@ activities = {
         "schedule": "Tuesdays and Thursdays, 4:00 PM - 6:00 PM",
         "max_participants": 25,
         "participants": []
+    },
+    "Debate Team": {
+        "description": "Develop argumentation skills and compete in debate competitions",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 16,
+        "participants": ["alex@mergington.edu"]
+    },
+    "Computer Science Club": {
+        "description": "Advanced programming and computer science topics",
+        "schedule": "Fridays, 4:00 PM - 5:30 PM",
+        "max_participants": 18,
+        "participants": []
+    },
+    "Basketball Team": {
+        "description": "Competitive basketball training and matches",
+        "schedule": "Mondays and Wednesdays, 4:00 PM - 5:30 PM",
+        "max_participants": 14,
+        "participants": []
+    },
+    "Photography Club": {
+        "description": "Learn photography techniques and digital editing",
+        "schedule": "Thursdays, 3:30 PM - 5:00 PM",
+        "max_participants": 12,
+        "participants": []
+    },
+    "Music Ensemble": {
+        "description": "Play instruments and perform in concerts",
+        "schedule": "Tuesdays and Thursdays, 5:00 PM - 6:30 PM",
+        "max_participants": 20,
+        "participants": []
     }
 }
 
